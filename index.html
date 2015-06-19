@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+	</head>
+	<body>
+		<div class = "content">
+			<div class = "container main">
+				<div class = "row">
+					<div class = "col-sm-12 col-md-3 col-md-offset-1">	
+						<div class = "formContainer">
+							<form id = "entryForm" class "addEntryForm">
+								<h3> Let's add an entry... </h3>
+								<div class = "form-group">
+									<label for = "InputTitle">Title</label>
+									<input type = "text" class="form-control" name = "title" id="inputTitle" placeholder = "Title"/>
+								</div>
+								<div class = "form-group">
+									<label for = "InputAuthor">Author</label>
+									<input type = "text" class="form-control" name="author" id="inputAuthor" placeholder = "Author"/>
+								</div>
+								<div class = "form-group">
+									<label for = "textContent">Content</label>
+									<textarea class="form-control" id="textContent" name="content" rows="3"></textarea>
+								</div>
+								<div class = "form-group">
+									<label for = "InputTags">Tags</label>
+									<input type = "text" class="form-control" name="tags" id="inputTags" placeholder = "Tags"/>
+								</div>
+								<button type="submit" class = "btn btn-default">Submit</button>
+							</form>
+						</div>
+					</div>	
+
+				<div class = "col-sm-12 col-md-6 col-md-offset-1">
+					<section id = "journalContent" class = "journalContainer">
+						<h1>My Journal Entries (<span id = "entryCount"></span>) </h1>
+					
+					</section>
+				</div>		
+
+
+
+				</div>
+			</div>
+		</div>
+
+		
+
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-formObjects.js"></script>
+		<script type="text/javascript" src="js/journal.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+	</body>
+</html>
