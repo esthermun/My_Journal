@@ -3,9 +3,9 @@ function Journal()
 	this.entries = [];
 
 	// adds an Entry with the given info
-	this.addEntry = function addIt(title, content, author, tags) {
+	this.addEntry = function addIt(title, content, author, tags, timestamp) {
 		// create the Entry object
-		var entry = new Entry(title, content, author, tags);
+		var entry = new Entry(title, content, author, tags, timestamp);
 		// add it to the array
 		this.entries.push(entry);
 		return entry;
@@ -65,13 +65,26 @@ function Journal()
 		// return all the entries with the tag
 		return foundEntries;
 	}
+	// find all entries with keyword and print out - NEED TO STRINGIFY
+	// this.searchKeyword = function findKeyword(keyword){
+	// 	var searchResults = [];
+	// 	for (var j = 0; j < this.entries.length; j++){
+	// 		var currentEntry = this.entries[j];
+	// 		if(currentEntry.indexOf(keyword) != -1){
+	// 			searchResults.push(this.entries[j]);
+	// 		}
+	// 	}
+	// 	return searchResults;
+	// }
+
 }
 
-function Entry(title, content, author, tags) {
+function Entry(title, content, author, tags, timestamp) {
 	this.title = title;
 	this.content = content;
 	this.author = author;
 	this.tags = tags;
+	this.timestamp = timestamp;
 
 	//contents to add to html page 
 	this.toHTML = function(){
@@ -80,6 +93,8 @@ function Entry(title, content, author, tags) {
 		htmlString += "<h3>" + this.title + "</h3>";
 		htmlString += "<h4>By: " + this.author + "</h3>";
 		htmlString += "<p>" + this.content + "</p>";
+		htmlString += "<p> #" + this.tags + "</p>";
+		htmlString += "<p>" + this.timestamp() + "</p>";
 		htmlString += "</article>";
 		htmlString += "<hr>"
 		return htmlString;
@@ -93,6 +108,20 @@ function Entry(title, content, author, tags) {
 			}
 		}
 		return false;
+	}
+
+
+	//timestamp
+	this.timestamp = function(){
+		var date = new Date();
+		var monthName = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+		var month = monthName[date.getMonth()];
+		var day = date.getDate();
+		var year = date.getFullYear();
+		var hour = date.getHours();
+		var min = date.getMinutes();
+		var time = month + " " + day + ", " + year + "  " + hour + ":" + min;
+    	return time;
 	}
 }
 
